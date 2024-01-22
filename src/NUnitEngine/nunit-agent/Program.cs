@@ -101,11 +101,11 @@ namespace NUnit.Agent
             log.Info("Starting RemoteTestAgent");
             Agent = new RemoteTestAgent(engine.Services, AgentId);
             Agent.Transport =
-#if NETFRAMEWORK
-                new Engine.Communication.Transports.Remoting.TestAgentRemotingTransport(Agent, AgencyUrl);
-#else
+//#if NETFRAMEWORK
+//                new Engine.Communication.Transports.Remoting.TestAgentRemotingTransport(Agent, AgencyUrl);
+//#else
                 new Engine.Communication.Transports.Tcp.TestAgentTcpTransport(Agent, AgencyUrl);
-#endif
+//#endif
 
             try
             {

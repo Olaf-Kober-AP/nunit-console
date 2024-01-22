@@ -27,7 +27,9 @@ namespace NUnit.Engine.Services
             bool loadUserProfile = package.GetSetting(EnginePackageSettings.LoadUserProfile, false);
             string workDirectory = package.GetSetting(EnginePackageSettings.WorkDirectory, string.Empty);
 
-            string agencyUrl = TargetRuntime.Runtime == RuntimeType.NetCore ? agency.TcpEndPoint : agency.RemotingUrl;
+            //string agencyUrl = TargetRuntime.Runtime == RuntimeType.NetCore ? agency.TcpEndPoint : agency.RemotingUrl;
+            string agencyUrl = agency.TcpEndPoint;
+
             AgentArgs = new StringBuilder($"{agentId} {agencyUrl} --pid={Process.GetCurrentProcess().Id}");
 
             // Set options that need to be in effect before the package
